@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,82 @@
     <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <style>
+        
+* {
+    margin: 0;  /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+html, body {
+    height: 100%; /* Ensure body takes full height */
+    font-family: Arial, sans-serif; /* Set a default font */
+}
+
+    </style>
 </head>
 <body>
     
+<header id="header">
+    <nav class="mx-auto items-center flex justify-evenly w-full p-16 mr-0
+    max-sm:flex max-sm:justify-around max-sm:items-center max-sm:p-4">
+       
+        <div class="logo flex gap-3 flex-1 ml-16 md:pl-0 max-sm:mr-3 max-sm:pl-4 md:-translate-x-6">
+          <img src="./images/logo.webp"  alt="log">
+          <h1 class="font-semibold text-2xl">Peddy</h1>
+        </div>
+      
+        
+        <div class="links flex gap-3 flex-1 justify-center max-sm:hidden md:pl-0 ">
+          <a href="#header">
+            <button class="btn custom-button">Home</button>
+          </a>
+          <a href="#main">
+            <button class="btn custom-button">Shop</button>
+          </a>
+          <a href="#footer">
+            <button class="btn custom-button">Contact</button>
+          </a>
+        </div>
+      
+       
+        <div class="profile_icons flex-1 flex justify-end max-sm:hidden md:pr-12 ">
+          <img src="https://img.icons8.com/?size=80&id=108639&format=png" alt="profile_icons">
+        </div>
 
+        <div class="dropdown dropdown-hover lg:hidden  max-sm:flex-1 max-sm:justify-start md:hidden">
+            <div tabindex="0" role="button" class="btn my-4 md:hidden text-white  bg-transparent border-transparent m-1"><img class="w-full h-full object-contain" src="https://img.icons8.com/?size=80&id=108634&format=png" alt=""></div>
+            <ul tabindex="0" class="dropdown-content menu text-white rounded-box z-[1] w-52 p-2 shadow">
+                <li>
+                    <div>
+                        <img src="https://img.icons8.com/?size=80&id=108639&format=png" alt="profile_icons">
+                    </div>
+                </li>
+              <li><a href="#header">
+                <button class="btn custom-button w-[90px] ">Home</button>
+              </a></li>
+              <li>  <a href="#main">
+                <button class="btn custom-button  w-[90px]">Shop</button>
+              </a></li>
+              <li>
+                <a href="#footer">
+                    <button class="btn custom-button w-[90px]">Contact</button>
+                  </a>
+              </li>
+            </ul>
+          </div>
+      </nav>
+      
+      
+</header>
+<main id="main">
 
+</main>
+<footer id="footer" class="bg-black">
+
+</footer>
 
 
 
