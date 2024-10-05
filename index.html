@@ -11,14 +11,14 @@
     <style>
         
 * {
-    margin: 0;  /* Remove default margins */
-    padding: 0; /* Remove default padding */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: 0;  
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
 html, body {
-    height: 100%; /* Ensure body takes full height */
-    font-family: Arial, sans-serif; /* Set a default font */
+    height: 100%; 
+    font-family: Arial, sans-serif; 
 }
 
     </style>
@@ -54,7 +54,7 @@ html, body {
 
         <div class="dropdown dropdown-hover lg:hidden  max-sm:flex-1 max-sm:justify-start md:hidden">
             <div tabindex="0" role="button" class="btn my-4 md:hidden text-white  bg-transparent border-transparent m-1"><img class="w-full h-full object-contain" src="https://img.icons8.com/?size=80&id=108634&format=png" alt=""></div>
-            <ul tabindex="0" class="dropdown-content menu text-white rounded-box z-[1] w-52 p-2 shadow">
+            <ul tabindex="0" class="dropdown-content menu text-white rounded-box z-[1] w-32 p-2 shadow">
                 <li>
                     <div>
                         <img src="https://img.icons8.com/?size=80&id=108639&format=png" alt="profile_icons">
@@ -107,11 +107,69 @@ html, body {
 <main id="main">
 
     
-
+<!-- 
+    Location: av. Washington 165, NY CA 54003
+Phone: +31 85 964 47 25
+Email: info@yourdomain.com
+Openings hours: 9.00 AM - 5.00 PM -->
 </main>
-<footer id="footer" class="bg-black">
+<footer id="footer" class="bg-black pl-6 p-16
+mx-auto">
+    <div class="container flex flex-col md:flex-row justify-between items-start mb-8 md:mb-0">
+        <!-- Left Section -->
+        <div class="flex flex-col items-center md:items-start mb-8 md:mb-0">
+            <div class="flex items-center gap-3 mb-6">
+                <img src="./images/logo.webp" alt="Peddy Logo" class="h-12 w-12"> 
+                <span class="text-white text-2xl font-semibold">Peddy</span>
+            </div>
+            <ul class="text-white mb-6 text-center md:text-left">
+                <li class="mb-2">Location: av. Washington 165, NY CA 54003</li>
+                <li class="mb-2">Phone: +31 85 964 47 25</li>
+                <li class="mb-2">Email: <a href="mailto:info@yourdomain.com" class="underline">info@yourdomain.com</a></li>
+                <li>Openings hours: 9.00 AM - 5.00 PM</li>
+            </ul>
+            <div class="flex gap-2">
+                <a href="https://www.facebook.com/mehedi.rafid.71"><img src="https://img.icons8.com/?size=48&id=114441&format=png" alt=""></a>
+                <a href="https://www.linkedin.com/in/sm-mehedihasan25/?originalSubdomain=bd"><img src="https://img.icons8.com/?size=48&id=13930&format=png" alt=""></a>
+                <a href="https://www.youtube.com/@TriangleTech71"><img src="https://img.icons8.com/?size=48&id=19318&format=png" alt=""></a>
+                <a href="https://www.instagram.com/mehedi_rafidsm/"><img src="https://img.icons8.com/?size=48&id=UrgbzHxXKotn&format=png" alt=""></a>
+            </div>
+        </div>
 
+        <!-- Center Section -->
+        <div class="flex-col items-center text-center md:items-start md:text-left mb-8 md:mb-0">
+            <h4 class="text-white mb-4">Useful Links</h4>
+            <ul class="text-slate-400">
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Animals</li>
+                <li>Foundation</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+        <!-- Right Section -->
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <h4 class="text-white text-xl mb-4">Drop a Message</h4>
+            <label class="input input-bordered flex items-center gap-2 mb-4">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="h-4 w-4 opacity-70">
+                    <path
+                        d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                    <path
+                        d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                </svg>
+                <input type="text" class="grow" placeholder="Email" />
+            </label>
+            <button class="btn btn-wide bg-[#0E7A81] text-white rounded-sm">Subscribe</button>
+        </div>
+    </div>
 </footer>
+
+
 
 
 
