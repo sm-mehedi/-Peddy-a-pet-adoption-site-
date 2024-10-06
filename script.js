@@ -1,7 +1,7 @@
 const showSpinner = () => {
     const showData = document.getElementById('ShowData1');
     showData.innerHTML = `
-       <div class="flex justify-center items-center h-full lg:translate-x-56 md:translate-x-32" style="height: 100vh;">
+       <div class="flex justify-center items-center h-full lg:translate-x-72 md:translate-x-32" style="height: 100vh;">
             <img src="./images/Rhombus.gif" alt="Loading..." class="w-48 h-48" /> 
         </div>
     `;
