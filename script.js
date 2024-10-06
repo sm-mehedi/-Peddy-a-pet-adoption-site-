@@ -66,7 +66,9 @@ const showAllData = (categories) => {
 
 
 loadAllData();
-
+const loadCategoryVideos=(id)=>{
+alert(id)
+}
 const loadCategories=()=>{
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
     .then((res)=>res.json())
@@ -79,17 +81,21 @@ const loadCategories=()=>{
 const displayCategories = (categories)=>{
     const categoryContainer = document.getElementById('category');
 categories.forEach(item=>{
-const button = document.createElement('button');
-button.innerHTML = `
+const buttoncontainer = document.createElement('div');
+buttoncontainer.innerHTML = `
 
-    <div class="flex flex-col items-center">
-                <img src="${item.category_icon}" alt="${item.category} Image" class="mb-2">
-                <span>${item.category}</span>
+    <div class="flex-row justify-center items-center ml-3 ">
+                <button onclick="loadCategoryVideos(id)" class="flex gap-7 items-center styled-button p-5 w-44">
+                <img class="w-6" src="${item.category_icon}" alt="${item.category} Image" class="mb-2">
+                <span class="text-2xl">${item.category}</span>
+                
+                </button>
             </div>
 
 `;
-button.classList.add('styled-button');
-categoryContainer.append(button);
+
+
+categoryContainer.append(buttoncontainer);
 })
 
 }
