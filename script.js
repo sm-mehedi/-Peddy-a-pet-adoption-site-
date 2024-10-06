@@ -17,7 +17,7 @@ const showAllData = (categories) => {
        
         const modal = document.createElement('div');
         modal.innerHTML = `
-            <div class="card bg-base-100 w-50 shadow-xl">
+            <div class="card bg-base-100 w-50 max-sm:w-30 shadow-xl items-center">
                 <figure>
                     <img class="object-contain rounded-lg w-full p-5"
                         src="${element.image? element.image:"N/A"}" 
