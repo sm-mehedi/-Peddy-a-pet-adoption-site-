@@ -1,11 +1,12 @@
 const showSpinner = () => {
     const showData = document.getElementById('ShowData1');
     showData.innerHTML = `
-        <div class="flex justify-center items-center h-full">
-            <img src="./images/Rhombus.gif" alt="Loading..." />
+       <div class="flex justify-center items-center h-full lg:translate-x-56 md:translate-x-32" style="height: 100vh;">
+            <img src="./images/Rhombus.gif" alt="Loading..." class="w-48 h-48" /> 
         </div>
     `;
 };
+
 
 const hideSpinner = () => {
     const showData = document.getElementById('ShowData1');
@@ -13,18 +14,22 @@ const hideSpinner = () => {
 };
 
 const loadAllData = () => {
-    showSpinner(); 
+    showSpinner();
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
         .then(res => res.json())
         .then(data => {
-            hideSpinner(); 
-            showAllData(data.pets);
+          
+            setTimeout(() => {
+                hideSpinner();
+                showAllData(data.pets);
+            }, 1000); 
         })
         .catch(error => {
             hideSpinner(); 
             console.error('Error fetching data:', error);
         });
 };
+
 
 const showAllData = (categories) => {
     showSpinner(); 
@@ -124,8 +129,11 @@ const loadCategoryVideos = (id) => {
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
         .then(res => res.json())
         .then(data => {
-            hideSpinner();
-            showAllData(data.data); 
+           
+            setTimeout(() => {
+                hideSpinner();
+                showAllData(data.data); 
+            }, 1000); 
         })
         .catch(error => {
             hideSpinner(); 
