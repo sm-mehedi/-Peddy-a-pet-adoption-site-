@@ -39,9 +39,18 @@ const showAllData = (categories) => {
                      <h4 class="flex gap-1 items-center"><img class="w-4" src="https://img.icons8.com/?size=50&id=11780&format=png"  alt="">Gender: ${element.gender ? element.gender : "N/A"}</h4>
                      <h4 class="flex gap-1 items-center"><img class="w-4" src="https://img.icons8.com/?size=80&id=44373&format=png"  alt="">Price: ${element.price ? element.price : "N/A"}</h4>
                      <hr>
-                    <div class="card-actions justify-end">
-                        <div class="badge badge-outline">${element.category}</div>
-                        <div class="badge badge-outline">Price: $${element.price}</div>
+                    <div class="card-actions justify-end gap-3">
+                        <div>
+                            <button class="cardButton btn w-14 color-white p-4 rounded-lg">
+                                <img src="https://img.icons8.com/?size=80&id=gaPaLIcj658F&format=png" alt="">
+                            </button>
+                        </div>
+                        <div>
+                            <button class="cardButton btn w-14 rounded-lg">Adopt</button>
+                        </div>
+                        <div>
+                            <button class="cardButton btn w-14 rounded-lg">Details</button>
+                        </div>
                     </div>
                 </div>
             </div>
