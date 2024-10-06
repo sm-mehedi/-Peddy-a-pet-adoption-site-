@@ -28,12 +28,16 @@ const showAllData = (categories) => {
                     ${element.pet_name ? element.pet_name : "N/A"}
                     </h2>
                     
-                    <h4>Breed: ${element.breed ? element.breed : "N/A"}</h4>
+                 
+                    <h4 class="flex gap-1 items-center"><img class="w-4" src="https://cdn-icons-png.flaticon.com/128/17405/17405288.png"  alt=""> Breed: ${element.breed ? element.breed : "N/A"}</h4>
 
-                     <h4>Birth: ${element.date_of_birth ? new Date(element.date_of_birth).getFullYear() : "N/A"}</h4>
+                    
 
-                     <h4>Gender: ${element.gender ? element.gender : "N/A"}</h4>
-                     <h4>Price: ${element.price ? element.price : "N/A"}</h4>
+                     <h4 class="flex gap-1 items-center"><img class="w-4" src="https://img.icons8.com/?size=32&id=QHEtypHttkOo&format=png"  alt="">
+                     Birth: ${element.date_of_birth ? new Date(element.date_of_birth).getFullYear() : "N/A"}</h4>
+
+                     <h4 class="flex gap-1 items-center"><img class="w-4" src="https://img.icons8.com/?size=50&id=11780&format=png"  alt="">Gender: ${element.gender ? element.gender : "N/A"}</h4>
+                     <h4 class="flex gap-1 items-center"><img class="w-4" src="https://img.icons8.com/?size=80&id=44373&format=png"  alt="">Price: ${element.price ? element.price : "N/A"}</h4>
                      <hr>
                     <div class="card-actions justify-end">
                         <div class="badge badge-outline">${element.category}</div>
