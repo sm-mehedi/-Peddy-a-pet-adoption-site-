@@ -1,7 +1,8 @@
 const showSpinner = () => {
     const showData = document.getElementById('ShowData1');
     showData.innerHTML = `
-       <div class="flex justify-center items-center h-full lg:translate-x-72 md:translate-x-32" style="height: 100vh;">
+       <div class="flex justify-center items-center h-full lg:translate-x-72
+        md:translate-x-32" style="height: 100vh;">
             <img src="./images/Rhombus.gif" alt="Loading..." class="w-48 h-48" /> 
         </div>
     `;
@@ -157,7 +158,7 @@ const displayCategories = (categories) => {
         const buttonContainer = document.createElement('div');
         buttonContainer.innerHTML = `
             <div class="flex-row justify-center items-center ml-3">
-                <button onclick="loadCategoryVideos('${item.category}')" class="flex gap-7 items-center styled-button p-5 w-44">
+                <button onclick="loadCategoryVideos('${item.category}')" class="flex gap-7 items-center styled-button p-5 w-44 max-sm:w-36 max-sm:gap-4 md:w-36 md:gap-4">
                     <img class="w-6" src="${item.category_icon}" alt="${item.category} Image" class="mb-2">
                     <span class="text-2xl">${item.category}</span>
                 </button>
