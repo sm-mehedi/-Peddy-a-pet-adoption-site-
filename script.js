@@ -67,6 +67,34 @@ const showAllData = (categories) => {
 
 loadAllData();
 
+const loadCategories=()=>{
+    fetch('https://openapi.programming-hero.com/api/peddy/categories')
+    .then((res)=>res.json())
+    .then((data)=>displayCategories(data.categories))
+    .catch((error)=>console.log(error))
+    
+
+}
+
+const displayCategories = (categories)=>{
+    const categoryContainer = document.getElementById('category');
+categories.forEach(item=>{
+const button = document.createElement('button');
+button.innerHTML = `
+
+    <div class="flex flex-col items-center">
+                <img src="${item.category_icon}" alt="${item.category} Image" class="mb-2">
+                <span>${item.category}</span>
+            </div>
+
+`;
+button.classList.add('styled-button');
+categoryContainer.append(button);
+})
+
+}
+loadCategories();
+
 const pictodiv = (imageURL) => {
     const show = document.getElementById('ShowData2');
     const imageDiv = document.createElement('div');
