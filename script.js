@@ -43,7 +43,7 @@ const showAllData = (categories) => {
                     <hr>
                     <div class="card-actions justify-end gap-3">
                         <div>
-                            <button class="cardButton btn w-14 color-white p-4 rounded-lg">
+                            <button onclick="pictodiv('${element.image}')"class="cardButton btn w-14 color-white p-4 rounded-lg">
                                 <img src="https://img.icons8.com/?size=80&id=gaPaLIcj658F&format=png" alt="">
                             </button>
                         </div>
@@ -63,7 +63,23 @@ const showAllData = (categories) => {
 };
 
 
+
+
 loadAllData();
+
+const pictodiv = (imageURL) => {
+    const show = document.getElementById('ShowData2');
+    const imageDiv = document.createElement('div');
+    
+    
+    imageDiv.innerHTML = `
+        <img class="rounded-lg w-full" src="${imageURL}" alt="Image" />
+        <br>
+    `;
+    
+
+    show.appendChild(imageDiv);
+};
 
 
 const adopt = () => {
