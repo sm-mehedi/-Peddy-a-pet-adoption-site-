@@ -6,44 +6,62 @@ const loadAllData = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
         .then(res => res.json())
         .then(data => showAllData(data.pets));
-        // .then(data=> displayDetails(data.pets) )
+      
 }
 
 const showAllData = (categories) => {
     const showData = document.getElementById('ShowData1'); 
+    showData.innerHTML = "";
+
+    
+    if (!categories || categories.length === 0) {
+        const noDataImage = document.createElement('div');
+        noDataImage.id = 'noDataDiv';
+        noDataImage.className = 'flex flex-col items-center justify-center h-screen  md:translate-x-20 lg:translate-x-56'; 
+        noDataImage.innerHTML = `
+            <img src="./images/error.webp" alt="No Data" class="mb-4 max-w-full" />
+            <h2 class="text-4xl font-bold text-center">No Information Available</h2>
+        `;
+    
+        showData.appendChild(noDataImage);
+        return; 
+    }
+    
+    
+
     categories.forEach(element => {
         const modal = document.createElement('div');
         modal.innerHTML = `
             <div class="card bg-base-100 w-50 max-sm:w-30 shadow-xl items-center">
                 <figure>
                     <img class="object-contain rounded-lg w-full p-5"
-                        src="${element.image ? element.image : "N/A"}" 
-                        alt="${element.pet_name ? element.pet_name : "N/A"}" />
+                        src="${element.image ? element.image : 'N/A'}" 
+                        alt="${element.pet_name ? element.pet_name : 'N/A'}" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title text-black text-4xl">
-                    ${element.pet_name ? element.pet_name : "N/A"}
+                    ${element.pet_name ? element.pet_name : 'N/A'}
                     </h2>
                     <h4 class="flex gap-1 items-center">
                         <img class="w-4" src="https://cdn-icons-png.flaticon.com/128/17405/17405288.png" alt=""> 
-                        Breed: ${element.breed ? element.breed : "N/A"}
+                        Breed: ${element.breed ? element.breed : 'N/A'}
                     </h4>
                     <h4 class="flex gap-1 items-center">
                         <img class="w-4" src="https://img.icons8.com/?size=32&id=QHEtypHttkOo&format=png" alt="">
-                        Birth: ${element.date_of_birth ? new Date(element.date_of_birth).getFullYear() : "N/A"}
+                        Birth: ${element.date_of_birth ? new Date(element.date_of_birth).getFullYear() : 'N/A'}
                     </h4>
                     <h4 class="flex gap-1 items-center">
                         <img class="w-4" src="https://img.icons8.com/?size=50&id=11780&format=png" alt=""> 
-                        Gender: ${element.gender ? element.gender : "N/A"}
+                        Gender: ${element.gender ? element.gender : 'N/A'}
                     </h4>
                     <h4 class="flex gap-1 items-center">
                         <img class="w-4" src="https://img.icons8.com/?size=80&id=44373&format=png" alt=""> 
-                        Price: ${element.price ? element.price : "N/A"}
+                        Price: ${element.price ? element.price : 'N/A'}
                     </h4>
                     <hr>
                     <div class="card-actions justify-end gap-3">
                         <div>
-                            <button onclick="pictodiv('${element.image}')"class="cardButton btn w-14 color-white p-4 rounded-lg">
+                            <button onclick="pictodiv('${element.image}')" class="cardButton btn w-14 color-white p-4 rounded-lg">
                                 <img src="https://img.icons8.com/?size=80&id=gaPaLIcj658F&format=png" alt="">
                             </button>
                         </div>
@@ -52,7 +70,6 @@ const showAllData = (categories) => {
                         </div>
                         <div>
                             <button onclick="displayDetails(${element.petId})" class="cardButton btn w-14 rounded-lg">Details</button>
-
                         </div>
                     </div>
                 </div>
@@ -65,12 +82,13 @@ const showAllData = (categories) => {
 
 
 
+
 loadAllData();
 const loadCategoryVideos = (id) => {
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`) // Use template literal correctly
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`) 
         .then(res => res.json())
         .then(data => {
-            console.log(data.data); 
+            showAllData(data.data); 
         })
         .catch(error => console.error('Error fetching category videos:', error));
 };
