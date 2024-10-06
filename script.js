@@ -66,40 +66,41 @@ const showAllData = (categories) => {
 
 
 loadAllData();
-const loadCategoryVideos=(id)=>{
-alert(id)
-}
-const loadCategories=()=>{
+const loadCategoryVideos = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`) // Use template literal correctly
+        .then(res => res.json())
+        .then(data => {
+            console.log(data.data); 
+        })
+        .catch(error => console.error('Error fetching category videos:', error));
+};
+
+const loadCategories = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
-    .then((res)=>res.json())
-    .then((data)=>displayCategories(data.categories))
-    .catch((error)=>console.log(error))
-    
+        .then((res) => res.json())
+        .then((data) => displayCategories(data.categories))
+        .catch((error) => console.log(error));
+};
 
-}
-
-const displayCategories = (categories)=>{
+const displayCategories = (categories) => {
     const categoryContainer = document.getElementById('category');
-categories.forEach(item=>{
-const buttoncontainer = document.createElement('div');
-buttoncontainer.innerHTML = `
-
-    <div class="flex-row justify-center items-center ml-3 ">
-                <button onclick="loadCategoryVideos(id)" class="flex gap-7 items-center styled-button p-5 w-44">
-                <img class="w-6" src="${item.category_icon}" alt="${item.category} Image" class="mb-2">
-                <span class="text-2xl">${item.category}</span>
-                
+    categories.forEach(item => {
+        const buttonContainer = document.createElement('div');
+        buttonContainer.innerHTML = `
+            <div class="flex-row justify-center items-center ml-3">
+                <button onclick="loadCategoryVideos('${item.category}')" class="flex gap-7 items-center styled-button p-5 w-44">
+                    <img class="w-6" src="${item.category_icon}" alt="${item.category} Image" class="mb-2">
+                    <span class="text-2xl">${item.category}</span>
                 </button>
             </div>
+        `;
 
-`;
+        categoryContainer.append(buttonContainer);
+    });
+};
 
-
-categoryContainer.append(buttoncontainer);
-})
-
-}
 loadCategories();
+
 
 const pictodiv = (imageURL) => {
     const show = document.getElementById('ShowData2');
