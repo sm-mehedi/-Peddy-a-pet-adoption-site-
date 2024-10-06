@@ -1,15 +1,34 @@
+const showSpinner = () => {
+    const showData = document.getElementById('ShowData1');
+    showData.innerHTML = `
+        <div class="flex justify-center items-center h-full">
+            <img src="./images/Rhombus.gif" alt="Loading..." />
+        </div>
+    `;
+};
 
-
-
+const hideSpinner = () => {
+    const showData = document.getElementById('ShowData1');
+    showData.innerHTML = ""; 
+};
 
 const loadAllData = () => {
+    showSpinner(); 
     fetch('https://openapi.programming-hero.com/api/peddy/pets')
         .then(res => res.json())
-        .then(data => showAllData(data.pets));
-      
-}
+        .then(data => {
+            hideSpinner(); 
+            showAllData(data.pets);
+        })
+        .catch(error => {
+            hideSpinner(); 
+            console.error('Error fetching data:', error);
+        });
+};
 
 const showAllData = (categories) => {
+    showSpinner(); 
+
     const showData = document.getElementById('ShowData1'); 
     showData.innerHTML = "";
 
@@ -80,18 +99,42 @@ const showAllData = (categories) => {
 };
 
 
+const sortByPriceDescending = (pets) => {
+    return pets.sort((a, b) => {
+        const priceA = a.price || 0;
+        const priceB = b.price || 0;
+        return priceB - priceA; 
+    });
+}
 
-
-
-loadAllData();
-const loadCategoryVideos = (id) => {
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`) 
+const sortButtonHandler = () => {
+    fetch('https://openapi.programming-hero.com/api/peddy/pets')
         .then(res => res.json())
         .then(data => {
+            const sortedPets = sortByPriceDescending(data.pets);
+            showAllData(sortedPets);
+        });
+}
+
+
+document.getElementById('sortButtonId').addEventListener('click', sortButtonHandler);
+
+const loadCategoryVideos = (id) => {
+    showSpinner();
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            hideSpinner();
             showAllData(data.data); 
         })
-        .catch(error => console.error('Error fetching category videos:', error));
+        .catch(error => {
+            hideSpinner(); 
+            console.error('Error fetching category videos:', error);
+        });
 };
+
+loadAllData();
+
 
 const loadCategories = () => {
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
