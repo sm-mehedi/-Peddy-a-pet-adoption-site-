@@ -169,7 +169,7 @@ html, body {
 
 
 
-<img src="" alt="">
+
 
 
 
@@ -190,7 +190,7 @@ html, body {
 
 
 </section>
-    <!-- Open the modal using ID.showModal() method -->
+    
 <button id="showModal1" class="btn hidden" onclick="customModal.showModal()">open modal</button>
 <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
@@ -200,9 +200,24 @@ html, body {
    </div>
     <div class="modal-action">
       <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
+       
         <button class="btn">Close</button>
       </form>
+    </div>
+  </div>
+</dialog>
+
+
+<button id="adopt" class="hidden btn" onclick="customModal1.showModal()">open modal</button>
+<dialog id="customModal1" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="modal-content1">
+
+        <div id="countdown" class="text-2xl">5</div>
+
+    </div>
+    <div class="modal-action">
+     
     </div>
   </div>
 </dialog>

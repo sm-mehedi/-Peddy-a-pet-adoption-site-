@@ -48,7 +48,7 @@ const showAllData = (categories) => {
                             </button>
                         </div>
                         <div>
-                            <button class="cardButton btn w-14 rounded-lg">Adopt</button>
+                            <button onclick="adopt()" class="cardButton btn w-14 rounded-lg">Adopt</button>
                         </div>
                         <div>
                             <button onclick="displayDetails(${element.petId})" class="cardButton btn w-14 rounded-lg">Details</button>
@@ -64,6 +64,40 @@ const showAllData = (categories) => {
 
 
 loadAllData();
+
+
+const adopt = () => {
+    const dc = document.getElementById('modal-content1');
+    dc.innerHTML = `
+    <div class="p-6 bg-green-100 rounded-lg shadow-lg max-w-md mx-auto text-center">
+        <h1 class="text-2xl font-bold text-green-700">Congratulations!</h1>
+        <h1 class="text-2xl font-bold text-green-700">Adoption process successfull</h1>
+        <img src="https://media.giphy.com/media/xUOxf0akiVBK6R8jGU/giphy.gif" alt="Congrats GIF">
+        <div id="countdown" class="text-4xl mt-4">5</div> 
+    </div>
+    `;
+
+   
+    document.getElementById('adopt').click();
+    count = 3; 
+    countdown(); 
+};
+
+const countdown = () => {
+    const countdownElement = document.getElementById("countdown");
+    
+    if (count >= 1) {
+        countdownElement.textContent = count;
+        count--;
+        setTimeout(countdown, 1000);
+        
+
+    }
+    else{
+        document.getElementById('customModal1').close();
+    }
+};
+
 
 const displayDetails = (Det) => {
     const index = Number(Det) - 1; 
