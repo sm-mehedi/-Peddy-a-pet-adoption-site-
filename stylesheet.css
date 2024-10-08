@@ -36,18 +36,17 @@
     cursor: pointer;
     transition: border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   }
-
-
+  
   .styled-button:hover {
     background-color: rgba(14, 122, 129, 0.1); 
     color: #0E7A81; 
   }
-
-
-  .styled-button:focus, 
+  
+  .styled-button:focus,
   .styled-button:active {
     outline: none;
     border-color: #0E7A81;
-    box-shadow: 0 0 8px rgba(14, 122, 129, 0.6); 
-    color: #fff; 
+    box-shadow: 0 0 16px rgba(14, 122, 129, 0.9); 
+    color: #0E7A81; 
   }
+  
